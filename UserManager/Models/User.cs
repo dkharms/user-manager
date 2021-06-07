@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace UserManager.Models
 {
-    public class User : IEnumerable<String>
+    public class User
     {
         public int Id { get; }
 
@@ -27,22 +27,6 @@ namespace UserManager.Models
             
             CreationDate = creationDate;
             IsDeleted = isDeleted;
-        }
-
-        public IEnumerator<string> GetEnumerator()
-        {
-            yield return Id.ToString();
-            yield return Login;
-            yield return FirstName;
-            yield return LastName;
-            yield return Patronymic;
-            yield return CreationDate.ToString("yyyy-MM-dd HH:mm:ss.fff");
-            yield return IsDeleted.ToString();
-        }
-        
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
         
         public override string ToString()
